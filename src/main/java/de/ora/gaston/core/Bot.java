@@ -21,7 +21,7 @@ public class Bot extends ListenerAdapter {
         availableCommands = new HashMap<>();
         availableCommands.put(CommandMeta.VERSION, new VersionCmd());
         availableCommands.put(CommandMeta.HELP, new HelpCmd());
-        availableCommands.put(CommandMeta.INTRO, new WelcomeCmd("vorstellung"));
+        availableCommands.put(CommandMeta.INTRO, new WelcomeCmd("willkommen", "vorstellung"));
     }
 
 
@@ -42,7 +42,7 @@ public class Bot extends ListenerAdapter {
             return;
         }
 
-        new WelcomeCmd("vorstellung").perform(event);
+        new WelcomeCmd("willkommen", "vorstellung").perform(event);
     }
 
 
