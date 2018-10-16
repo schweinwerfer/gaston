@@ -12,4 +12,8 @@ public class Config {
     public static String getVersion() {
         return config.getString("version");
     }
+
+    public static String getName() {
+        return config.getString("name");
+    }
 }
