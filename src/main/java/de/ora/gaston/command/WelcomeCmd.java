@@ -37,7 +37,7 @@ public class WelcomeCmd extends BotCommand {
     }
 
     private String welcomeMsg(final Guild guild, final IMentionable member, final String infoChannelName, final String introChannelString) {
-        String message = "Hallo %user%, willkommen auf %guild%!%n%Schaue dich auf %infochannel% um und stelle dich kurz auf %introchannel% vor.";
+        String message = "Hallo %user%, willkommen auf %guild%!%n%Erfahre mehr unter %infochannel% und stelle dich kurz auf %introchannel% vor.";
         message = message.replace("%user%", member.getAsMention());
         message = message.replace("%guild%", guild.getName());
 

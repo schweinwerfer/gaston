@@ -30,6 +30,7 @@ public class Main extends ListenerAdapter {
         jda = new JDABuilder(AccountType.BOT)
                 .addEventListener(new Bot())
                 .setToken(token)
+                .setAutoReconnect(true)
                 .buildAsync();
     }
 

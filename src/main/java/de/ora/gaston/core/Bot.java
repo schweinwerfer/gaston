@@ -1,10 +1,12 @@
 package de.ora.gaston.core;
 
 import de.ora.gaston.command.*;
+import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.DisconnectEvent;
 import net.dv8tion.jda.core.events.ReadyEvent;
 import net.dv8tion.jda.core.events.guild.member.GuildMemberJoinEvent;
+import net.dv8tion.jda.core.events.guild.update.GuildUpdateAfkTimeoutEvent;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
@@ -16,6 +18,7 @@ public class Bot extends ListenerAdapter {
     private static final Logger LOG = Logger.getLogger(Bot.class.getSimpleName());
     private static final Map<CommandMeta, BotCommand> availableCommands;
     private static final HelpCmd HELP_CMD = new HelpCmd();
+    private JDA jda;
 
     static {
         availableCommands = new HashMap<>();
@@ -24,10 +27,20 @@ public class Bot extends ListenerAdapter {
         availableCommands.put(CommandMeta.INTRO, new WelcomeCmd("willkommen", "vorstellung"));
     }
 
+    public Bot() {
+    }
 
     @Override
     public void onReady(ReadyEvent event) {
         LOG.info("Ready");
+        this.jda = event.getJDA();
+        LOG.info("Max reconnect delay: " + jda.getMaxReconnectDelay());
+        LOG.info("Ping: " + jda.getPing());
+    }
+
+    @Override
+    public void onGuildUpdateAfkTimeout(GuildUpdateAfkTimeoutEvent event) {
+        super.onGuildUpdateAfkTimeout(event);
     }
 
     @Override
