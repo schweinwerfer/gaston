@@ -66,13 +66,19 @@ public class Bot extends ListenerAdapter {
             return;
         }
         final String contentRaw = event.getMessage().getContentRaw();
+
+
+        if (!contentRaw.startsWith("!")) {
+            return;
+        }
+
         final CommandMeta commandMeta = CommandMeta.lookup(contentRaw);
 
         final BotCommand botCommand = availableCommands.get(commandMeta);
         if (botCommand != null) {
             botCommand.perform(event);
         } else {
-            HELP_CMD.perform(event);
+            //HELP_CMD.perform(event);
         }
     }
 

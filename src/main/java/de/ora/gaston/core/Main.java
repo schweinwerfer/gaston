@@ -22,7 +22,7 @@ public class Main extends ListenerAdapter {
                 try {
                     mainThread.join();
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    // ignore
                 }
             }
         });
@@ -31,6 +31,7 @@ public class Main extends ListenerAdapter {
                 .addEventListener(new Bot())
                 .setToken(token)
                 .setAutoReconnect(true)
+                .setEnableShutdownHook(true)
                 .buildAsync();
     }
 
