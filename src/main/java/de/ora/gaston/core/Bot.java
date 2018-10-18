@@ -1,13 +1,21 @@
 package de.ora.gaston.core;
 
 import de.ora.gaston.command.*;
+import net.dv8tion.jda.client.events.group.GroupUserJoinEvent;
+import net.dv8tion.jda.client.events.message.group.GenericGroupMessageEvent;
 import net.dv8tion.jda.core.JDA;
+import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.DisconnectEvent;
+import net.dv8tion.jda.core.events.Event;
 import net.dv8tion.jda.core.events.ReadyEvent;
+import net.dv8tion.jda.core.events.guild.member.GenericGuildMemberEvent;
 import net.dv8tion.jda.core.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.core.events.guild.update.GuildUpdateAfkTimeoutEvent;
+import net.dv8tion.jda.core.events.message.GenericMessageEvent;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.user.GenericUserPresenceEvent;
+import net.dv8tion.jda.core.events.user.UserOnlineStatusUpdateEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 import java.util.HashMap;
@@ -57,6 +65,8 @@ public class Bot extends ListenerAdapter {
 
         new WelcomeCmd("willkommen", "vorstellung").perform(event);
     }
+
+
 
 
     @Override

@@ -4,10 +4,12 @@ import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
+import java.awt.*;
 import java.util.List;
 
 public abstract class BotCommand {
     private CommandMeta cmd;
+    protected final static Color embedColor = new Color(255, 206, 117);
 
     private BotCommand() {
     }
