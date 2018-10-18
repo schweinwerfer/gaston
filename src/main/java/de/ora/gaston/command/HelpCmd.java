@@ -1,12 +1,10 @@
 package de.ora.gaston.command;
 
-import de.ora.gaston.util.Emoji;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.MessageChannel;
 import net.dv8tion.jda.core.entities.MessageEmbed;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-
-import java.awt.*;
+import org.apache.commons.lang3.StringUtils;
 
 public class HelpCmd extends BotCommand {
 
@@ -25,9 +23,8 @@ public class HelpCmd extends BotCommand {
             final String cmd = meta.getCmd();
             sb.append(cmd).append(" - ").append(meta.getDescription()).append(System.lineSeparator());
         }
-        final MessageEmbed messageEmbed = new EmbedBuilder().setTitle("Mögliche Befehle").setColor(embedColor).setDescription(sb.toString()).build();
-        channel.sendMessage(messageEmbed).queue();
-    }
 
+        channel.sendMessage(embed("Mögliche Befehle", sb.toString())).queue();
+    }
 
 }

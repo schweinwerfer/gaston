@@ -6,7 +6,8 @@ import java.util.Map;
 public enum CommandMeta {
     VERSION("!version", "Zeigt die aktuelle Version an"),
     HELP("!help", "Zeigt alle möglichen Befehle an"),
-    INTRO("!intro", "Zeigt den standard Willkommenstext an");
+    INTRO("!intro", "Zeigt den standard Willkommenstext an"),
+    DOODLE("!doodle", "Kündigt einen Doodle Poll an. Syntax !doodle <url>");
 
     private final String cmd;
     private final String description;

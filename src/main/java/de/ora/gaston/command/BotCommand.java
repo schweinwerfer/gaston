@@ -1,8 +1,11 @@
 package de.ora.gaston.command;
 
+import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Guild;
+import net.dv8tion.jda.core.entities.MessageEmbed;
 import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import org.apache.commons.lang3.StringUtils;
 
 import java.awt.*;
 import java.util.List;
@@ -31,4 +34,13 @@ public abstract class BotCommand {
     }
 
     public abstract void perform(final MessageReceivedEvent event);
+
+
+    protected MessageEmbed embed(String title, String msg) {
+        final EmbedBuilder embedBuilder = new EmbedBuilder();
+        if (StringUtils.isNotBlank(title)) {
+            embedBuilder.setTitle(title);
+        }
+        return embedBuilder.setColor(embedColor).setDescription(msg).build();
+    }
 }
